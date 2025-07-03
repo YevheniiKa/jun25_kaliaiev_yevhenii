@@ -1,1 +1,115 @@
+:root {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 100%;
+  color: #2f4f4f;
+}
 
+body,
+p,
+span,
+section,
+article,
+a {
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 0%;
+  font-size: 16px;
+}
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  justify-content: center;
+  padding: 30px 35px 155px 35px;
+  gap: 40px 30px;
+  @media (min-width: 750px) {
+    padding-inline: 160px;
+  }
+  @media (min-width: 1000px) {
+    padding-inline: 55px;
+    grid-template-columns: repeat(4, 200px);
+  }
+  @media (min-width: 1500px) {
+    padding-inline: 305px;
+    padding-bottom: 197px;
+    grid-template-columns: repeat(4, 200px);
+  }
+}
+
+.person {
+  position: relative;
+  transition: transform 1s;
+  width: 220px;
+  height: 287px;
+  z-index: 0;
+
+  &:hover {
+    background-color: #eeeeee;
+    z-index: 2;
+    border-radius: 12px;
+    transform: scale(1.2);
+    transform-origin: center center;
+
+    .person__photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        border-radius: 60px;
+      }
+    }
+    padding: 12px;
+    .extra {
+      opacity: 100;
+    }
+    .person__rank {
+      right: 10px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+  }
+  &__rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 84px;
+    right: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+
+    color: #8b0000;
+  }
+  &__details {
+  }
+  &__name {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 20px;
+  }
+}
+
+.extra {
+  display: block;
+  opacity: 0;
+  padding: 9px 0 16px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  &__sport-pay {
+  }
+}
