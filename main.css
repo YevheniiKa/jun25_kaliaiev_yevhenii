@@ -2,7 +2,6 @@
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 700;
   line-height: 100%;
-  letter-spacing: 0%;
   color: #2f4f4f;
 }
 
@@ -11,12 +10,15 @@ p,
 span,
 section,
 article,
-a,
-img {
+a {
   display: block;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 0%;
+  font-size: 16px;
 }
 
 .people {
@@ -45,6 +47,35 @@ img {
   }
 }
 
+.person {
+  position: relative;
+  transition: transform 1s;
+  width: 220px;
+  height: 287px;
+  z-index: 0;
+}
+.person:hover {
+  background-color: #eeeeee;
+  z-index: 2;
+  border-radius: 12px;
+  transform: scale(1.2);
+  transform-origin: center center;
+  padding: 12px;
+}
+.person:hover .person__photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.person:hover .person__photo img {
+  border-radius: 60px;
+}
+.person:hover .extra {
+  opacity: 100;
+}
+.person:hover .person__rank {
+  right: 10px;
+}
 .person__photo {
   position: relative;
 }
@@ -59,12 +90,11 @@ img {
   align-items: center;
   position: absolute;
   bottom: 84px;
-  right: 10px;
+  right: 30px;
   background-color: #fff;
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  font-size: 16px;
   color: #8b0000;
 }
 .person__name {
@@ -74,5 +104,10 @@ img {
 }
 
 .extra {
-  display: none;
-}/*# sourceMappingURL=main.css.map */
+  display: block;
+  opacity: 0;
+  padding: 9px 0 16px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+} /*# sourceMappingURL=main.css.map */
