@@ -6,11 +6,13 @@
 }
 
 body,
+main,
 p,
 span,
 section,
 article,
-a {
+a,
+img {
   display: block;
   box-sizing: border-box;
   padding: 0;
@@ -21,11 +23,17 @@ a {
   font-size: 16px;
 }
 
+a {
+  cursor: pointer;
+}
+
 .people {
   display: grid;
   grid-template-columns: repeat(2, 200px);
   justify-content: center;
-  padding: 30px 35px 155px 35px;
+  padding-top: 30px;
+  padding-bottom: 155px;
+  padding-inline: 35px;
   gap: 40px 30px;
 }
 @media (min-width: 750px) {
@@ -48,38 +56,40 @@ a {
 }
 
 .person {
+  transition: transform 1s ease 1s;
   position: relative;
-  transition: transform 1s;
   width: 220px;
-  height: 287px;
+  height: 231px;
   z-index: 0;
+  border-radius: 12px;
 }
 .person:hover {
   background-color: #eeeeee;
-  z-index: 2;
   border-radius: 12px;
+  z-index: 2;
   transform: scale(1.2);
   transform-origin: center center;
-  padding: 12px;
 }
 .person:hover .person__photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 12px;
 }
 .person:hover .person__photo img {
   border-radius: 60px;
 }
-.person:hover .extra {
-  opacity: 100;
+.person:hover .person__details {
+  background-color: #eeeeee;
+  border-radius: 12px;
 }
-.person:hover .person__rank {
-  right: 10px;
+.person:hover .extra {
+  display: block;
 }
 .person__photo {
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 .person__photo img {
+  transition: border-radius 1s ease 1s;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -90,24 +100,30 @@ a {
   align-items: center;
   position: absolute;
   bottom: 84px;
-  right: 30px;
+  right: 22px;
   background-color: #fff;
   border-radius: 50%;
   width: 32px;
   height: 32px;
   color: #8b0000;
 }
+.person__details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 .person__name {
   text-align: center;
-  margin-top: 8px;
+  margin: 8px 0 9px;
   font-size: 20px;
 }
 
 .extra {
-  display: block;
-  opacity: 0;
-  padding: 9px 0 16px;
+  display: none;
   text-align: center;
+}
+.extra__sport-pay {
   font-weight: 400;
   font-size: 18px;
-} /*# sourceMappingURL=main.css.map */
+  margin-bottom: 16px;
+}/*# sourceMappingURL=main.css.map */
